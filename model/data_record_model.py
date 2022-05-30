@@ -3,7 +3,7 @@ from flask_restx import Namespace, fields
 api = Namespace('UserGameRecordData', description='Record User Game Data from Two Arm Bandit Task')
 
 record_data = api.model('game_set_data', {
-    'selection': fields.String(attribute='Leprechaun Selection'),
+    'action': fields.String(attribute='Leprechaun Selection'),
     'reward': fields.Integer(attribute='reward'),
     'total_score': fields.Integer(attribute='Total Score')
 })
