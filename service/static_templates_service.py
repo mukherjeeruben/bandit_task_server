@@ -6,7 +6,7 @@ from interface.JSON_Encoder import JSONEncoder
 import json
 
 
-@api.route("/create")
+# @api.route("/create")
 class CreateStaticData(Resource):
     def post(self):
         x = create_template_data()
@@ -16,6 +16,6 @@ class CreateStaticData(Resource):
 @api.route("/get")
 class GetStaticData(Resource):
     def get(self):
-        x = get_template_data()
-        res = JSONEncoder().encode(x)
-        return json.loads(res)
+        template = get_template_data()
+        result = JSONEncoder().encode(template)
+        return json.loads(result)

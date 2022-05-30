@@ -1,7 +1,3 @@
-from flask_restx import Namespace, fields
+from flask_restx import Namespace
 
-api = Namespace('StaticTemplates', description= 'Static Template Scores for Two Arm Bandit Task')
-
-static_entry_fields = api.model('Static Data', {
-    'Name': fields.String(attribute='name')
-    })
+api = Namespace('StaticGameTemplate', description='Static Template Scores for Two Arm Bandit Task')
