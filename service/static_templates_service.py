@@ -6,7 +6,7 @@ from interface.JSON_Encoder import JSONEncoder
 import json
 
 
-# @api.route("/create")
+# @api.route("/create") #TODO Testing
 class CreateStaticData(Resource):
     def post(self):
         x = create_template_data()
@@ -15,7 +15,10 @@ class CreateStaticData(Resource):
 
 @api.route("/get")
 class GetStaticData(Resource):
+    @api.doc(response={200: 'Success', 400: 'Validation Error'})
+    @api.response('default', 'Error')
     def get(self):
+        '''Get game template for bandit task'''
         template = get_template_data()
         result = JSONEncoder().encode(template)
         return json.loads(result)
