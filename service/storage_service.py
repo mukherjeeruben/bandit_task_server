@@ -1,11 +1,11 @@
 from flask_restx import Resource
-from model.storage_model import api, FILE_UPLOAD, file_download_fields
+from model.storage_model import api, FILE_UPLOAD
 from interface.dropbox_bucket import upload_file, get_file_list
 
 
 @api.route('/uplaodfile')
 class UplaodFileClass(Resource):
-    @api.doc(response={200: 'Success', 400: 'Validation Error'}, security='apikey')
+    @api.doc(response={200: 'Success', 400: 'Validation Error'})
     @api.expect(FILE_UPLOAD)
     @api.response('default', 'Error')
     def post(self):
@@ -18,7 +18,7 @@ class UplaodFileClass(Resource):
 
 @api.route('/getfilelist')
 class FetchFileListClass(Resource):
-    @api.doc(response={200: 'Success', 400: 'Validation Error'}, security='apikey')
+    @api.doc(response={200: 'Success', 400: 'Validation Error'})
     @api.response('default', 'Error')
     def get(self):
         '''Get File List from dropbox'''
