@@ -1,7 +1,7 @@
 DEBUG = False
 
 API_TITLE = 'Bandit Task API'
-API_VERSION = '1.2'
+API_VERSION = '1.4'
 API_DESCRIPTION = '<b>Dublin City University</b> : Server API for Two Arm Bandit Task'
 API_STYLE = '<style>.base-url {display: none !important}</style>' #TODO Not working
 

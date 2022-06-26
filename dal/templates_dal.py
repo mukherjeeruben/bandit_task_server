@@ -1,24 +1,18 @@
 from interface import mdb_execute
+from bl.template_bl import process_template_data
 
 
-def get_template_data():
+def get_template_data(templatetype):
+    query = {'template-type': templatetype}
     collection = 'static_templates'
-    result = mdb_execute.execute('get', collection)
+    dataset = mdb_execute.execute('get', collection, query)
+    result = process_template_data(dataset)
     return result
 
 
-def create_template_data():
-    data = [{'0': {'blue': -20, 'red': +40},
-             '1': {'blue': +40, 'red': -60},
-             '2': {'blue': +40, 'red': -60},
-             '3': {'blue': +40, 'red': -60},
-             '4': {'blue': +40, 'red': -60},
-             '5': {'blue': +40, 'red': -60},
-             '6': {'blue': +40, 'red': -60},
-             '7': {'blue': +40, 'red': -60},
-             '8': {'blue': +40, 'red': -60},
-             '9': {'blue': +40, 'red': -60}
-             }]
+def create_template_data(dataset):
+    data = list()
+    data.append(dataset)
     collection = 'static_templates'
     result = mdb_execute.execute('create', collection, data)
     return result[0]
