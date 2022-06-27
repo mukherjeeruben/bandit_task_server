@@ -9,5 +9,9 @@ record_data = api.model('game_set_data', {
 })
 
 user_game_data_field = api.model('user_game_data_set', {
-    'iteration_number': fields.Nested(record_data)})
+    'interface_type': fields.String(attribute='interface_type'),
+    'user_id': fields.String(attribute='user_id'),
+    'game_data': fields.Nested(record_data),
+    'creation_time': fields.String(attribute='creation_time')})
+
 
