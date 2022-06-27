@@ -8,6 +8,7 @@ from flask_cors import CORS
 from service.static_templates_service import api as statictemplates
 from service.data_record_service import api as usergamedata
 from service.storage_service import api as app_storage
+from service.base_data_service import api as basedata
 ###########################################
 
 
@@ -19,6 +20,7 @@ API = Api(flask_app, title=config.API_TITLE, version=config.API_VERSION, descrip
 API.add_namespace(statictemplates)
 API.add_namespace(usergamedata)
 API.add_namespace(app_storage)
+API.add_namespace(basedata)
 ###########################################
 
 if __name__ == '__main__':
