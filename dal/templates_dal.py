@@ -4,7 +4,7 @@ from bl.template_bl import process_template_data
 
 def get_template_data(templatetype):
     query = {'template-type': templatetype}
-    collection = 'static_templates'
+    collection = 'static_templates_test'  # TODO change to 'static_templates' for PROD
     dataset = mdb_execute.execute('get', collection, query)
     result = process_template_data(dataset)
     return result

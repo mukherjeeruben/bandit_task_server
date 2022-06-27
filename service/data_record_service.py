@@ -18,7 +18,7 @@ class InsertUserGameData(Resource):
         return jsonify(result)
 
 
-@api.route("/deletealldata") # TODO Keep commented during check-in
+# @api.route("/deletealldata") # TODO Keep commented during check-in
 class DeleteUserGameData(Resource):
     @api.doc(response={200: 'Success', 400: 'Validation Error'})
     @api.response('default', 'Error')
