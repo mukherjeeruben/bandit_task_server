@@ -14,4 +14,8 @@ user_game_data_field = api.model('user_game_data_set', {
     'game_data': fields.Nested(record_data),
     'creation_time': fields.String(attribute='creation_time')})
 
+delete_user_gamedata = api.model('delete_user_data',{
+    'accesskey': fields.String(attribute='accesskey'),
+})
+
 
