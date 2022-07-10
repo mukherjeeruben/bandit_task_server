@@ -3,7 +3,7 @@ from model.storage_model import api, FILE_UPLOAD
 from interface.dropbox_bucket import upload_file, get_file_list
 
 
-@api.route('/uplaodfile')
+@api.route('/uploadfile')
 class UplaodFileClass(Resource):
     @api.doc(response={200: 'Success', 400: 'Validation Error'})
     @api.expect(FILE_UPLOAD)
