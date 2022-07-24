@@ -15,3 +15,9 @@ def delete_all_data():
     result = mdb_execute.execute('delete', collection, dataset)
     return result[0]
 
+
+def get_user_game_data():
+    collection = 'user_game_data'
+    result = mdb_execute.execute('get', collection)
+    return result
+
