@@ -2,6 +2,7 @@ import csv
 from config import CSV_FILE_PATH
 from dal.record_game_data_dal import get_user_game_data
 
+user_ids = list()
 
 def write_to_csv(task_type, interface_name):
     filepath = CSV_FILE_PATH + '\\' + interface_name + '_dataset.csv'
@@ -17,11 +18,20 @@ def write_to_csv(task_type, interface_name):
                 writer.writerow([str(str(user_data['_id'])+(game_data_key)), choice, game_data_value['reward'], user_data['user_id']])
 
 
+def userdata_filer(game_data): # TODO Code to keep uniform dataset for voice and conventional task
+    global user_ids
+    user_ids = [row['user_id'] for row in game_data if row['interface_type'] == 'voice']
+
+
 if __name__ == '__main__':
     game_data = get_user_game_data()
-    task_set = set([row['interface_type'] for row in game_data])
+    task_set = sorted(set([row['interface_type'] for row in game_data]), reverse=True)
+    userdata_filer(game_data)
     for task_name in task_set:
-        data = [row for row in game_data if row['interface_type'] == task_name]
+        if task_name == 'conventional':
+            data = [row for row in game_data if row['interface_type'] == task_name and row['user_id'] in user_ids]
+        else:
+            data = [row for row in game_data if row['interface_type'] == task_name]
         write_to_csv(data, task_name)
 
 
