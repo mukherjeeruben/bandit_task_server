@@ -8,7 +8,7 @@ def write_to_csv(task_type, interface_name):
     filepath = CSV_FILE_PATH + '\\' + interface_name + '_dataset.csv'
     with open(filepath, 'w', newline='') as file:
         writer = csv.writer(file, delimiter=',')
-        writer.writerow(["x_id", "choice", "outcome", "subject_id"])
+        writer.writerow(["x_id", "choice", "outcome", "subjID"])
         for user_data in task_type:
             for game_data_key, game_data_value in user_data['game_data'].items():
                 if game_data_value['action'] == 'blue':
